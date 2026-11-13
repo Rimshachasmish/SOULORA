@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soulora - Everyone Wants Peace</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:linear-gradient(180deg,#fff7ed,#ffe4e6,#ddd6fe);min-height:100vh;color:#3b2f2f;padding:20px}
+.top{text-align:center;padding:20px 10px}
+.logo{font-size:42px;font-weight:900;letter-spacing:3px;background:linear-gradient(90deg,#ec4899,#8b5cf6,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tag{font-size:15px;margin-top:6px;color:#6b7280}
+.card{background:rgba(255,255,255,.9);border-radius:24px;padding:22px;margin:16px auto;max-width:520px;box-shadow:0 15px 35px rgba(0,0,0,.08);text-align:center}
+h2{font-size:20px;margin-bottom:10px}
+.circle{width:150px;height:150px;border-radius:50%;margin:18px auto;background:radial-gradient(circle,#fbcfe8,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:white;transition:all 4s;cursor:pointer}
+.circle.big{transform:scale(1.25)}
+button{background:#111827;color:white;border:none;padding:13px 22px;border-radius:999px;font-size:15px;font-weight:700;cursor:pointer;width:100%;margin-top:12px}
+button.pink{background:#ec4899}
+textarea{width:100%;height:100px;border:1.5px solid #e5e7eb;border-radius:16px;padding:12px;font-size:15px;outline:none;resize:none}
+.quote{font-size:18px;line-height:1.6;font-style:italic}
+.small{font-size:13px;color:#9ca3af;margin-top:8px}
+.footer{text-align:center;font-size:13px;color:#6b7280;padding:10px}
+</style>
+</head>
+<body>
+<div class="top">
+<div class="logo">SOULORA</div>
+<div class="tag">✨ Everyone Wants Peace ✨</div>
+<div class="tag">By Rimsha - For Beautiful Souls</div>
+</div>
+<div class="card">
+<h2>🌸 Aaj Ka Pyara Jumla</h2>
+<p class="quote" id="quote">"Tum thak gayi ho, haar nahi mani. Yehi tumhari jeet hai."</p>
+<button class="pink" onclick="newQuote()">Naya Jumla Dekho 💖</button>
+</div>
+<div class="card">
+<h2>🫁 Saans Lo - Dil Halka Karo</h2>
+<div class="circle" id="breath">Saans Lo</div>
+<p class="small">Circle pe click karo aur mere sath saans lo</p>
+<button onclick="breathe()">Start Breathing</button>
+</div>
+<div class="card">
+<h2>💌 Apna Dil Halka Karo</h2>
+<textarea id="diary" placeholder="Aaj dil me kya hai? Yahan likh do, koi nahi dekhega..."></textarea>
+<button onclick="saveDiary()">Save Kar Lo 🤍</button>
+<p class="small" id="saved"></p>
+</div>
+<div class="footer">Made with Love ❤️ | Soulora - Peace For Everyone</div>
+<script>
+let quotes=[
+"Tum thak gayi ho, haar nahi mani. Yehi tumhari jeet hai.",
+"Allah tumhare dil ka haal janta hai, tum akeli nahi ho.",
+"Har andheri raat ke baad subah zaroor aati hai.",
+"Tum jitna sochti ho, us se zyada mazboot ho.",
+"Peace tumhare andar hai, bas usko mehsus karo.",
+"Aaj ka din tumhare liye behtar hoga, InshaAllah."
+];
+function newQuote(){document.getElementById('quote').innerText='"'+quotes[Math.floor(Math.random()*quotes.length)]+'"'}
+function breathe(){
+let c=document.getElementById('breath');
+c.classList.toggle('big');
+c.innerText=c.classList.contains('big')?'Chhor Do...':'Saans Lo';
+setTimeout(()=>{c.classList.toggle('big');c.innerText=c.classList.contains('big')?'Chhor Do...':'Saans Lo'},4000);
+}
+function saveDiary(){
+document.getElementById('saved').innerText='Ho gaya! Tumhara dil halka ho gaya. Allah tumhe sukoon de. 🤲';
+document.getElementById('diary').value='';
+}
+</script>
+</body>
+</html>
